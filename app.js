@@ -1,40 +1,17 @@
-const h1 = document.querySelector("div.hello:first-child h1");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
 
-console.dir(h1);
+const link = document.querySelector("a");
 
-function handleTitleClick() {
-  h1.style.color = "blue";
+function onLoginSubmit(event) {
+  event.preventDefault();
+  console.log(loginInput.value);
 }
 
-function handleMouseEnter() {
-  h1.innerText = "Mouse is here!";
+function handleLinkClick(event) {
+  event.preventDefault();
+  console.dir(event);
 }
 
-function handleMouseLeave() {
-  h1.innerText = "Mouse is gone!";
-}
-
-function handleWindowResize() {
-  document.body.style.backgroundColor = "tomato";
-}
-
-function handleWindowCopy() {
-  alert("copy!");
-}
-
-function handleWindowOffline() {
-  alert("SOS no WIFI");
-}
-
-function handleWindowOnline() {
-  alert("Now on WIFI");
-}
-
-h1.addEventListener("click", handleTitleClick);
-h1.addEventListener("mouseenter", handleMouseEnter);
-h1.addEventListener("mouseleave", handleMouseLeave);
-
-window.addEventListener("resize", handleWindowResize);
-window.addEventListener("copy", handleWindowCopy);
-window.addEventListener("offline", handleWindowOffline);
-window.addEventListener("online", handleWindowOnline);
+loginForm.addEventListener("submit", onLoginSubmit);
+link.addEventListener("click", handleLinkClick);
